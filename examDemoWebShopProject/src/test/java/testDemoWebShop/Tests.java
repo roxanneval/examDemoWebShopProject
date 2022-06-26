@@ -21,7 +21,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import demoWebShopClasses.RestApi;
+
 import io.restassured.RestAssured;
 
 
@@ -34,7 +34,7 @@ public class Tests {
 	static BasePageDemoWebShop basePgDemo = new BasePageDemoWebShop();
 	static ItemPage itemPg = new ItemPage();
 	static CompareListPage compLstPg = new CompareListPage();
-	static RestApi restApi = new RestApi();
+
 	
 	
 	

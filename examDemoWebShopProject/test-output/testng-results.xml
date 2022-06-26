@@ -1,57 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="8" total="9" passed="0" failed="1" skipped="0">
+<testng-results ignored="6" total="7" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-06-26T21:26:56 SAST" name="Default suite" finished-at="2022-06-26T21:26:56 SAST" duration-ms="437">
+  <suite started-at="2022-06-26T21:41:01 SAST" name="Default suite" finished-at="2022-06-26T21:41:04 SAST" duration-ms="2751">
     <groups>
     </groups>
-    <test started-at="2022-06-26T21:26:56 SAST" name="Default test" finished-at="2022-06-26T21:26:56 SAST" duration-ms="437">
-      <class name="testDemoWebShop.Tests">
-        <test-method is-config="true" signature="setUpAPITest()[pri:0, instance:testDemoWebShop.Tests@60afd40d]" started-at="2022-06-26T21:26:56 SAST" name="setUpAPITest" finished-at="2022-06-26T21:26:56 SAST" duration-ms="415" status="PASS">
+    <test started-at="2022-06-26T21:41:01 SAST" name="Default test" finished-at="2022-06-26T21:41:04 SAST" duration-ms="2751">
+      <class name="testDemoWebShop.RestTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:testDemoWebShop.RestTest@515aebb0]" started-at="2022-06-26T21:41:01 SAST" name="setUp" finished-at="2022-06-26T21:41:01 SAST" duration-ms="404" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setUpAPITest -->
-        <test-method signature="GIVEN_UseronLandingPage_WHEN_UserAddsItemsToCompareList_THEN_UserCanCompareProducts2(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:testDemoWebShop.Tests@60afd40d]" started-at="2022-06-26T21:26:56 SAST" name="GIVEN_UseronLandingPage_WHEN_UserAddsItemsToCompareList_THEN_UserCanCompareProducts2" finished-at="2022-06-26T21:26:56 SAST" duration-ms="0" status="FAIL">
-          <exception class="org.testng.TestNGException">
-            <message>
-              <![CDATA[
-Method public void testDemoWebShop.Tests.GIVEN_UseronLandingPage_WHEN_UserAddsItemsToCompareList_THEN_UserCanCompareProducts2(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) throws java.lang.InterruptedException requires a @DataProvider named : Product List & Price]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.testng.TestNGException: 
-Method public void testDemoWebShop.Tests.GIVEN_UseronLandingPage_WHEN_UserAddsItemsToCompareList_THEN_UserCanCompareProducts2(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String) throws java.lang.InterruptedException requires a @DataProvider named : Product List & Price
-at org.testng.internal.Parameters.findDataProvider(Parameters.java:516)
-at org.testng.internal.Parameters.handleParameters(Parameters.java:739)
-at org.testng.internal.Parameters.handleParameters(Parameters.java:704)
-at org.testng.internal.invokers.ParameterHandler.handleParameters(ParameterHandler.java:70)
-at org.testng.internal.invokers.ParameterHandler.createParameters(ParameterHandler.java:49)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:904)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:193)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:808)
-at org.testng.TestRunner.run(TestRunner.java:603)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:429)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:423)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:383)
-at org.testng.SuiteRunner.run(SuiteRunner.java:326)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1249)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
-at org.testng.TestNG.runSuites(TestNG.java:1092)
-at org.testng.TestNG.run(TestNG.java:1060)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.testng.TestNGException -->
+        </test-method> <!-- setUp -->
+        <test-method signature="getShippingCountryDesc()[pri:0, instance:testDemoWebShop.RestTest@515aebb0]" started-at="2022-06-26T21:41:01 SAST" name="getShippingCountryDesc" finished-at="2022-06-26T21:41:04 SAST" duration-ms="2320" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- GIVEN_UseronLandingPage_WHEN_UserAddsItemsToCompareList_THEN_UserCanCompareProducts2 -->
-      </class> <!-- testDemoWebShop.Tests -->
+        </test-method> <!-- getShippingCountryDesc -->
+      </class> <!-- testDemoWebShop.RestTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
