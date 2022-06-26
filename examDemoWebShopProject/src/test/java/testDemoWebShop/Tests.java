@@ -239,7 +239,6 @@ public class Tests {
 	 * THEN the user is can compare products
 	 * GIVEN_UseronLandingPage_WHEN_UserAddsItemsToCompareList_THEN_UserCanCompareProducts
 	 */
-		
 		String compareFirstItem;
 		String compareSecondItem;
 		basePgDemo.NavigateToHomePage();

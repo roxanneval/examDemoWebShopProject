@@ -71,7 +71,16 @@ public class RestTest {
 	@Test
 	public static void getShippingCountryDesc(){
 
-		List<String> zip = given().when().get("/ID/3").then().extract().path("/ZipCode/") ;{
+		List<String> zip = given().when().get("/ID/3").then().extract().path("/Country/") ;{
+			System.out.println(zip);
+	
+		   }
+		}
+	
+	@Test
+	public static void getShippingState2(){
+
+		List<String> zip = given().when().get("/ID/1").then().extract().path("/State/") ;{
 			System.out.println(zip);
 	
 		   }
