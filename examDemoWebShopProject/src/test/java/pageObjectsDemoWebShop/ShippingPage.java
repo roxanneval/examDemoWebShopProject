@@ -1,5 +1,7 @@
 package pageObjectsDemoWebShop;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 
 import demoWebShopClasses.BasePage;

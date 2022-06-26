@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -163,7 +164,7 @@ public class BasePage {
 			waitforClick(30, pLocator);
 			driver.findElement(pLocator).sendKeys(enterText);
 		}
-	
+		
 		// Method: Clear text from field
 		public void clearText(By pLocator) {
 			waitforClick(30, pLocator);

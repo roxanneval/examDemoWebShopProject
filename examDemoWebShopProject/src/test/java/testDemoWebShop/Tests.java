@@ -45,12 +45,7 @@ public class Tests {
 	public void cleanUp() {
 		basePgDemo.cleanUp();
 	}
-	
-	@BeforeTest
-	public void setUpAPITest() {
-		//Specify the base URL to the RESTFUL web Service
-		RestAssured.baseURI = "https://sheet.best/api/sheets/dd36da4e-2ea6-4d93-8698-e9ac6085aa97";
-	}
+
 	
 	@Test
 	public void GIVEN_UserIsOnLandingPage_When_UserClicksComputerCategory_AND_UserClicksDesktops_THEN_UserWillBeDirectedToDesktopProducts() 
@@ -297,6 +292,6 @@ public class Tests {
 		Reporter.log("The Price of my first item is: " + compareFirstItem);
 		Reporter.log("The Price of my second item is: " + compareSecondItem);
 	}
-
+	
 }
 
