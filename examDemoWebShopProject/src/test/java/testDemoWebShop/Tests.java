@@ -6,28 +6,47 @@ import pageObjectsDemoWebShop.CompareListPage;
 import pageObjectsDemoWebShop.ItemPage;
 import pageObjectsDemoWebShop.LandingPage;
 import pageObjectsDemoWebShop.ShippingPage;
+
+import static io.restassured.RestAssured.given;
+
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import demoWebShopClasses.RestApi;
+import io.restassured.RestAssured;
 
 
 public class Tests {
 	
 	//Instantiate Pages
-	LandingPage lndPg = new LandingPage();
-	CartPage cartPg = new CartPage();
-	ShippingPage shipPg = new ShippingPage();
-	BasePageDemoWebShop basePgDemo = new BasePageDemoWebShop();
-	ItemPage itemPg = new ItemPage();
-	CompareListPage compLstPg = new CompareListPage();
+	static LandingPage lndPg = new LandingPage();
+	static CartPage cartPg = new CartPage();
+	static ShippingPage shipPg = new ShippingPage();
+	static BasePageDemoWebShop basePgDemo = new BasePageDemoWebShop();
+	static ItemPage itemPg = new ItemPage();
+	static CompareListPage compLstPg = new CompareListPage();
+	static RestApi restApi = new RestApi();
 	
 	
-	@AfterTest
+	
+	@AfterMethod
 	public void cleanUp() {
 		basePgDemo.cleanUp();
+	}
+	
+	@BeforeTest
+	public void setUpAPITest() {
+		//Specify the base URL to the RESTFUL web Service
+		RestAssured.baseURI = "https://sheet.best/api/sheets/dd36da4e-2ea6-4d93-8698-e9ac6085aa97";
 	}
 	
 	@Test
@@ -220,6 +239,7 @@ public class Tests {
 	 * THEN the user is can compare products
 	 * GIVEN_UseronLandingPage_WHEN_UserAddsItemsToCompareList_THEN_UserCanCompareProducts
 	 */
+		
 		String compareFirstItem;
 		String compareSecondItem;
 		basePgDemo.NavigateToHomePage();
@@ -241,4 +261,40 @@ public class Tests {
 		Reporter.log("The Price of my first item is: " + compareFirstItem);
 		Reporter.log("The Price of my second item is: " + compareSecondItem);
 	}
+
+	@Test (dataProvider = "Product List & Price")
+	public void GIVEN_UseronLandingPage_WHEN_UserAddsItemsToCompareList_THEN_UserCanCompareProducts2
+	(String item1, String price1, String category, String item2, String price2)
+			throws InterruptedException {
+	/* User Story 6
+	 * GIVEN user is on landing page
+	 * WHEN user adds items to compare list
+	 * THEN the user is can compare products
+	 * GIVEN_UseronLandingPage_WHEN_UserAddsItemsToCompareList_THEN_UserCanCompareProducts
+	 */
+		String compareFirstItem;
+		String compareSecondItem;
+		basePgDemo.NavigateToHomePage();
+		lndPg.searchBar(item1);
+		if (category.equalsIgnoreCase("Computers")) {
+			lndPg.clickOnCategoryTopBar();
+			lndPg.clickOnSubCategory();
+			itemPg.clickOnFirstItem();
+			itemPg.addItemToCompareList();
+		}
+		else if (category.equalsIgnoreCase("Electronics")){
+			lndPg.clickCategoriesList();
+			lndPg.clickSubCategoryList();
+			itemPg.clickOnFirstItem();
+			itemPg.addItemToCompareList();
+		}
+		compareFirstItem = compLstPg.getUnitPriceFirstItem();
+		compareSecondItem = compLstPg.getUnitPriceSecondItem();
+		System.out.println("The Price of my first item is: " + compareFirstItem);
+		System.out.println("The Price of my second item is: " + compareSecondItem);
+		Reporter.log("The Price of my first item is: " + compareFirstItem);
+		Reporter.log("The Price of my second item is: " + compareSecondItem);
+	}
+
 }
+

@@ -3,12 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testDemoWebShop.RestTest">
+      <class name="testDemoWebShop.Tests">
         <methods>
-          <include name="setUp"/>
-          <include name="getShippingCountry"/>
+          <include name="setUpAPITest"/>
+          <include name="GIVEN_UseronLandingPage_WHEN_UserAddsItemsToCompareList_THEN_UserCanCompareProducts2"/>
+          <include name="cleanUp"/>
         </methods>
-      </class> <!-- testDemoWebShop.RestTest -->
+      </class> <!-- testDemoWebShop.Tests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

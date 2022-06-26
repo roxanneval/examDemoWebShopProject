@@ -23,11 +23,13 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.restassured.RestAssured;
 
 public class BasePage {
 	
 	//Declare WebDriver
 		public static WebDriver driver;
+		
 		
 	//Constructor
 		public BasePage() {
@@ -36,6 +38,7 @@ public class BasePage {
 				String browser = getDataConfigPropeties("browser");
 				String URL = getDataConfigPropeties("URL");
 				String pdriverDir = getDataConfigPropeties("driverdir");
+			
 				
 				
 				// check if parameter passed as "chrome"
@@ -156,7 +159,7 @@ public class BasePage {
 		}
 
 		// Method: Enter text on field
-		public void enterText(By pLocator, String enterText) {
+		public void enterText(By pLocator, String  enterText) {
 			waitforClick(30, pLocator);
 			driver.findElement(pLocator).sendKeys(enterText);
 		}
@@ -176,6 +179,5 @@ public class BasePage {
 		// Populate the Dropdown
 			sDropdown.selectByVisibleText(pValue);
 		}
-		
 
 }
