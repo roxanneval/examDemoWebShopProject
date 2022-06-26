@@ -21,19 +21,22 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-
+import demoWebShopClasses.ReadExcel;
+import demoWebShopClasses.Utilities;
 import io.restassured.RestAssured;
 
 
 public class Tests {
 	
 	//Instantiate Pages
-	static LandingPage lndPg = new LandingPage();
-	static CartPage cartPg = new CartPage();
-	static ShippingPage shipPg = new ShippingPage();
-	static BasePageDemoWebShop basePgDemo = new BasePageDemoWebShop();
-	static ItemPage itemPg = new ItemPage();
-	static CompareListPage compLstPg = new CompareListPage();
+	LandingPage lndPg = new LandingPage();
+	CartPage cartPg = new CartPage();
+	ShippingPage shipPg = new ShippingPage();
+	BasePageDemoWebShop basePgDemo = new BasePageDemoWebShop();
+	ItemPage itemPg = new ItemPage();
+	CompareListPage compLstPg = new CompareListPage();
+	ReadExcel rExcel = new ReadExcel();
+	Utilities uts = new Utilities();
 
 	
 	
