@@ -33,11 +33,12 @@ public class LandingPage extends BasePage {
 	public void clickCategoriesList() {
 		clickElement(By.xpath
 				("/html[1]/body[1]/div[4]/div[1]/div[4]/div[1]/div[1]/div[2]/ul[1]/li[3]/a[1]")); 
+				 
 		
 	}
 	
 	public void clickSubCategoryList() {
-		clickElement(By.xpath("/html[1]/body[1]/div[4]/div[1]/div[4]/div[1]/div[1]/div[2]/ul[1]/li[3]/ul[1]/li[1]/a[1]"));
+		clickElement(By.xpath("/html[1]/body[1]/div[4]/div[1]/div[4]/div[1]/div[1]/div[2]/ul[1]/li[3]/ul[1]/li[2]/a[1]"));
 	}
 	
 	public String checkSubCategoryHeader() {

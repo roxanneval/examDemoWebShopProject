@@ -44,6 +44,7 @@ public class CartPage extends BasePage{
 				("div.master-wrapper-page:nth-child(4) div.master-wrapper-content div.master-wrapper-main:nth-child(5) div.center-1 div.page.shopping-cart-page div.page-body > div.order-summary-content"));
 			return cartIsEmpty;
 	}
+	
 }
 
 

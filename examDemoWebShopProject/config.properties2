@@ -3,4 +3,3 @@ URL=http://demowebshop.tricentis.com/
 pdriverDir=C:\\Selenium\\
 outPutDir=C:\autoprogram\\examDemoWebShopProject\\examDemoWebShopProject\\src\\test\\java\\TestData
 excelDataDir=C:\\Users\\roxannev
-restAPI=https://sheet.best/api/sheets/ec657bc8-0432-4459-9fd8-2b31bd15f8f3

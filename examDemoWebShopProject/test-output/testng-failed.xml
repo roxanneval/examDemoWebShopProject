@@ -5,9 +5,15 @@
     <classes>
       <class name="testDemoWebShop.Tests">
         <methods>
-          <include name="setUpAPITest"/>
+          <include name="GIVEN_The_UserOnDesktopPage_WHEN_TheUserClicksFirstItem_THEN_TheUserDirectedToProductDetailPage_AND_TheUserClicksAddToCart_AND_TheUserNavigatestoCart_THEN_TheCartQty1"/>
+          <include name="GIVEN_UserOnCartPage_WHEN_UserSelectsItemToRemove_AND_UserUpdatesShoppingCart_THEN_TheItemWillBeRemoved"/>
+          <include name="setUp"/>
+          <include name="GIVEN_UserOnShippingPage_WHEN_UserUpdatesShippingDetails_THEN_UserIsAbleToEstimateShipping"/>
+          <include name="GIVEN_UserOnProductListPage_WHEN_UserClicksFirstItem_AND_UserAddsItemToCart_THEN_ItemIsAddedToCart"/>
+          <include name="GIVEN_UserIsOnLandingPage_When_UserClicksComputerCategory_AND_UserClicksDesktops_THEN_UserWillBeDirectedToDesktopProducts"/>
           <include name="GIVEN_UseronLandingPage_WHEN_UserAddsItemsToCompareList_THEN_UserCanCompareProducts2"/>
-          <include name="cleanUp"/>
+          <include name="GIVEN_TheUserOnCartPage_WHEN_UserClicksOnQty_THEN_UserIsAbleToUpdateQty"/>
+          <include name="GIVEN_UseronLandingPage_WHEN_UserAddsItemsToCompareList_THEN_UserCanCompareProducts"/>
         </methods>
       </class> <!-- testDemoWebShop.Tests -->
     </classes>

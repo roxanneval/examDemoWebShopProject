@@ -6,6 +6,7 @@ import pageObjectsDemoWebShop.CompareListPage;
 import pageObjectsDemoWebShop.ItemPage;
 import pageObjectsDemoWebShop.LandingPage;
 import pageObjectsDemoWebShop.ShippingPage;
+import pageObjectsDemoWebShop.apiCalls;
 
 import static io.restassured.RestAssured.given;
 
@@ -37,15 +38,14 @@ public class Tests {
 	CompareListPage compLstPg = new CompareListPage();
 	ReadExcel rExcel = new ReadExcel();
 	Utilities uts = new Utilities();
+	apiCalls apiCall = new apiCalls();
 
-	
-	
-	
-	@AfterMethod
-	public void cleanUp() {
-		basePgDemo.cleanUp();
+	@BeforeTest
+	public void setUp() {
+		//Specify the base URL to the RESTFUL web Service
+		RestAssured.baseURI = "https://sheet.best/api/sheets/dd36da4e-2ea6-4d93-8698-e9ac6085aa97";
 	}
-
+	
 	
 	@Test
 	public void GIVEN_UserIsOnLandingPage_When_UserClicksComputerCategory_AND_UserClicksDesktops_THEN_UserWillBeDirectedToDesktopProducts() 
@@ -68,6 +68,7 @@ public class Tests {
 		Reporter.log("Expected result is:" + " " + expectedTitle);
 		Reporter.log("Actual result is:" + " " + actualTitle);
 		Assert.assertEquals(actualTitle, expectedTitle);	
+		
 	}	
 	
 	@Test
@@ -95,7 +96,8 @@ public class Tests {
 		actualCartQty = cartPg.cartQtyCheck();
 		Reporter.log("Expected result is:" + " " + expectedCartQty);
 		Reporter.log("Actual result is:" + " " + actualCartQty);
-		Assert.assertEquals(actualCartQty, expectedCartQty);	
+		Assert.assertEquals(actualCartQty, expectedCartQty);
+	
 	}
 	
 	@Test
@@ -117,6 +119,7 @@ public class Tests {
 		Reporter.log("Expected Heading:" + " " + expectedSubCatHeader);
 		Reporter.log("Actual Heading:" + " " + actualSubCatHeader);
 		Assert.assertEquals(actualSubCatHeader, expectedSubCatHeader);
+	
 	}
 	
 	@Test
@@ -143,6 +146,7 @@ public class Tests {
 		Reporter.log("Expected result is:" + " " + expectedCartQty);
 		Reporter.log("Actual result is:" + " " + actualCartQty);
 		Assert.assertEquals(actualCartQty, expectedCartQty);
+		
 	}
 	
 	@Test 
@@ -172,6 +176,7 @@ public class Tests {
 		Reporter.log("Expected result is:" + " " + expectedCartQty);
 		Reporter.log("Actual result is:" + " " + actualCartQty);
 		Assert.assertEquals(actualCartQty, expectedCartQty);
+		
 	}
 	
 	@Test
@@ -198,6 +203,7 @@ public class Tests {
 		System.out.println(cartIsEmpty);
 		Reporter.log("Item removed: " + " " + cartIsEmpty);
 		Assert.assertEquals(cartIsEmpty.contains("Cart is empty!"),true);
+		
 	}
 	
 	@Test
@@ -209,25 +215,27 @@ public class Tests {
 	 * THEN user is able to estimate shipping 
 	 * GIVEN_UserOnShippingPage_WHEN_UserUpdatesShippingDetails_THEN_UserIsAbleToEstimateShipping
 	 */
+		String zipCode;
 		String actualShippingDetails;
-		String expectedShippingDetails = "Ground (0.00)";
+		String expectedShippingDetails;
 		basePgDemo.NavigateToHomePage();
 		lndPg.clickCategoriesList();
 		lndPg.clickSubCategoryList();
-		itemPg.clickOnFirstItem();
+		itemPg.clickOnThirdItem();
 		itemPg.clickOnAddToCart();
 		itemPg.clickOnAddToCart();		
 		itemPg.goToShoppingCart(); 
 		shipPg.selectDropDownCountry("United States");
 		shipPg.selectDropDownState("New York");
-		shipPg.enterZipCode("7560");
+		zipCode = apiCall.getzipCode();
+		shipPg.enterZipCode(zipCode);
 		shipPg.estimateShipping();
 		shipPg.checkShippingDetails();
 		actualShippingDetails = shipPg.checkShippingDetails();
+		expectedShippingDetails = apiCall.getEstimatedShippingCost();
 		Reporter.log("Your Shipping estimates are: " + actualShippingDetails);
-		Assert.assertEquals(actualShippingDetails,expectedShippingDetails);
+		Assert.assertEquals(actualShippingDetails,expectedShippingDetails);	
 	}
-	
 	@Test
 	public void GIVEN_UseronLandingPage_WHEN_UserAddsItemsToCompareList_THEN_UserCanCompareProducts()
 			throws InterruptedException {
@@ -247,7 +255,7 @@ public class Tests {
 		basePgDemo.NavigateToHomePage();
 		lndPg.clickOnCategoryTopBar();
 		lndPg.clickOnSubCategory();
-		itemPg.clickOnSecondItem();
+		itemPg.clickOnThirdItem();
 		itemPg.addItemToCompareList();
 		compLstPg.getUnitPriceFirstItem();
 		compLstPg.getUnitPriceSecondItem();
@@ -257,8 +265,10 @@ public class Tests {
 		System.out.println("The Price of my second item is: " + compareSecondItem);
 		Reporter.log("The Price of my first item is: " + compareFirstItem);
 		Reporter.log("The Price of my second item is: " + compareSecondItem);
+		
 	}
 
+	//Example of reading from Excel(I do not have Excel on my laptop and have used API to read from an external source
 	@Test (dataProvider = "Product List & Price")
 	public void GIVEN_UseronLandingPage_WHEN_UserAddsItemsToCompareList_THEN_UserCanCompareProducts2
 	(String item1, String price1, String category, String item2, String price2)
@@ -291,6 +301,7 @@ public class Tests {
 		System.out.println("The Price of my second item is: " + compareSecondItem);
 		Reporter.log("The Price of my first item is: " + compareFirstItem);
 		Reporter.log("The Price of my second item is: " + compareSecondItem);
+		
 	}
 	
 }

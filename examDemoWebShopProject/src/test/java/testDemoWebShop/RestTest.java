@@ -82,19 +82,29 @@ public class RestTest {
 
 		List<String> zip = given().when().get("/ID/1").then().extract().path("/State/") ;{
 			System.out.println(zip);
-	
+			for (String zipCode : zip){
+			System.out.println(zipCode);
+			}
 		   }
 		}
 	
 	
 	@Test
-	public void testCase() {
-	List<String> zip =
-				given().when().get("/ID/3").then().extract().response().path("/ZipCode/");
-		for (String zipCode : zip) {
-			System.out.println("My zipCode = " + zipCode);
-		}
-	}
+	public void estimatedShippingCost() {
+		String shippingCost = 
+		given().
+		when().
+		get("").
+		then().
+		extract().path("[2][\"Expected Shipping Cost\"]")
+		;
+		System.out.println(shippingCost);
+		
+		
+		
+}
+	
+	
 }
 	
 	

@@ -12,8 +12,8 @@ public class ItemPage extends BasePage{
 				("div.master-wrapper-page:nth-child(4) div.master-wrapper-content div.master-wrapper-main:nth-child(5) div.center-2 div.page.category-page div.page-body div.product-grid div.item-box:nth-child(1) div.product-item div.details h2.product-title > a:nth-child(1)"));
 	}
 	
-	public void clickOnSecondItem() {
-		clickElement(By.cssSelector("div.master-wrapper-page:nth-child(4) div.master-wrapper-content div.master-wrapper-main:nth-child(5) div.center-2 div.page.category-page div.page-body div.product-grid div.item-box:nth-child(2) div.product-item div.details h2.product-title > a:nth-child(1)"));
+	public void clickOnThirdItem() {
+		clickElement(By.cssSelector("div.master-wrapper-page:nth-child(4) div.master-wrapper-content div.master-wrapper-main:nth-child(5) div.center-2 div.page.category-page div.page-body div.product-grid div.item-box:nth-child(3) div.product-item div.details h2.product-title > a:nth-child(1)"));
 	}
 	
 	public void clickOnAddToCart() {
